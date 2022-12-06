@@ -1,0 +1,15 @@
+"C:\Program Files\Java\jdk\bin\keytool" -genkeypair -alias my_certificate -keystore my_keystore.pfx -storepass my_password -validity 365 -keyalg RSA -keysize 2048 -storetype pkcs12
+
+my_certificate is the alias for your certificate in the key store. Normally you will never use it, but every new certificate in your key store must have its own alias.
+
+my_keystore.pfx is the key store file, which will be generated as the result of the process. It will contain your certificate and a corresponding private key. You will be able to reuse this key store for next certificates you maybe will generate. One key store can contain many certificates.
+
+my_password is the password, that protects your key store file. You will have to enter it every time you want to sign a document.
+
+validity is the number of days your certificate will stay valid. You can enter more than 365.
+
+RSA is the algorithm used to generate the cryptographic keys, corresponding to your certificate.
+
+2048 is the length of the cryptographic keys. The more the length the stronger the signature.
+
+pkcs12 is the format of the key store file. PKCS#12 (a.k.a PFX) key stores can be understood by a lot of different programs and you can also import a PKCS#12 file in your Windows key store (just double click it and follow the instructions).
